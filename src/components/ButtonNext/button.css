@@ -1,0 +1,10 @@
+.my-btn {
+  border: 1px solid darkgreen;
+  margin: 20px;
+  position: relative;
+  align-content: flex-end;
+}
+.align-right {
+  width: 100%;
+  text-align: end;
+}

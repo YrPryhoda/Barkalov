@@ -1,0 +1,20 @@
+.main-div {
+    position: relative;
+    border: 2px solid black;
+    margin-top: 5px;
+    height: 100%;
+    border-radius: 10px;
+    background-color: rgb(99, 233, 99);
+}
+.my-list {
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: rgb(17, 78, 17) !important;
+    color: white !important;
+    font-size: 1.1em;
+    margin-bottom: 4px;
+    
+}
+.my-group {
+    margin: 20px;
+}

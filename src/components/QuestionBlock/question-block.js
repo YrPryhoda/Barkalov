@@ -75,19 +75,17 @@ export default class QuestionBlock extends React.Component {
             this.removeChoiseStyle();
             id++;
             this.setState({ id });
-        }
-        else if (id === compare) {
-            document.getElementById('btn')
-                .innerHTML = 'Закончить';
+            if( id === compare) {
+                document.getElementById('btn')
+                    .innerHTML = 'Закончить'; 
+            }
+        }    else  {
             const answered = this.countMark(correctAnswers, answers);
             this.setState({
                 finish: true,
                 answered
             });
-
-
-        }
-    }
+    } }
     countMark = (apiAnswers, variants) => {
         let counter = 0;
         const { data } = this.state;

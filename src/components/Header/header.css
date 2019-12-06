@@ -1,7 +1,9 @@
 .my-container {
-    padding: 20px;
+    margin-top: 20px;
+    padding: 15px;
     text-align: center;
-    border: 2px solid rgb(192, 176, 176);
+    border: 2px solid rgb(202, 141, 29);
     border-radius: 10px;
-    background-color: lightyellow;
+    background-color: rgb(251, 203, 114);
+    font-weight: 800;
 }

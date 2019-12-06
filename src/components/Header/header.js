@@ -4,7 +4,7 @@ import './header.css';
 const  Header = () => {
     return (
       <div className='my-container'>
-     <h2>Quiz Test 10 tasks</h2>
+     <h2>{`Сomputer science Quiz test template`}</h2>
     </div>
     );
   

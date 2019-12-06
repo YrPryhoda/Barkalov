@@ -5,15 +5,18 @@ import QuestionBlock from '../QuestionBlock';
 import './App.css';
 
 export default class App extends React.Component {
-
+   
   QuizConstructor = new QuizService();
-  
-  render() {
+ 
 
+  render() {
     return (
       <div className='container'>
         <Header />
-        <QuestionBlock getData={this.QuizConstructor.getQuastions} />
+        <QuestionBlock 
+            getData={this.QuizConstructor.getQuastions} 
+            getAnswers = {this.QuizConstructor.getAnswers} 
+        />
       </div>
     );
   }

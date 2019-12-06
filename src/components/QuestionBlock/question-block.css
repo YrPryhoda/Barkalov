@@ -1,11 +1,4 @@
-.main-div {
-    position: relative;
-    border: 2px solid black;
-    margin-top: 5px;
-    height: 100%;
-    border-radius: 10px;
-    background-color: rgb(99, 233, 99);
-}
+
 .my-list {
     cursor: pointer;
     border-radius: 5px;
@@ -15,6 +8,15 @@
     margin-bottom: 4px;
     
 }
-.my-group {
-    margin: 20px;
+
+.my-choise {
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.1em;
+    margin-bottom: 4px;
+    background-color: rgb(255, 251, 0) !important;
+    color: black !important;
+    font-weight: bold;
 }
+
+

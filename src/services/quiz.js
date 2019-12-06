@@ -93,9 +93,19 @@ export default class QuizService {
     },
     
   ] //end
+  _answers = {
+    '0' : 2,
+    '1' : 3,
+    '2' : 1,
+    '3' : 3,
+    '4' : 2
+  }
 
   getQuastions = async () => {
     return this._quastions;
+  };
+  getAnswers = async () => {
+    return this._answers;
   };
 
 // for Web API

@@ -2,9 +2,7 @@ import React from 'react';
 import { Quiz, Result, Warning } from '../renderUI/render-ui';
 import './question-block.css';
 import Spinner from '../spinner';
-import SendPOST from '../../services/send';
 export default class QuestionBlock extends React.Component {
-
     state = {
         data: null,
         id: 0,
@@ -41,7 +39,7 @@ export default class QuestionBlock extends React.Component {
         });
         return answers.map((el) => {
             return (
-                <li /* onClick={(e) => this.writeAnswer(el.label, id, e.target)} */
+                <li 
                     className='my-list list-group-item list-group-item-action' key={el.label} id={el.label}>
                     {el.variant}
                 </li>)
@@ -65,6 +63,7 @@ export default class QuestionBlock extends React.Component {
         const { answers } = this.state;
         answers[id] = el.id;
         this.setState({ answers });
+        this.props.writeAnswersToWizzard(answers);
         this.addChoiseStyle(el.id);
     }
 
@@ -75,17 +74,20 @@ export default class QuestionBlock extends React.Component {
             this.removeChoiseStyle();
             id++;
             this.setState({ id });
-            if( id === compare) {
+            if (id === compare) {
                 document.getElementById('btn')
-                    .innerHTML = 'Закончить'; 
+                    .innerHTML = 'Закончить';
             }
-        }    else  {
+        } else {
+            const dateTime = new Date();
+            this.props.time(dateTime);
             const answered = this.countMark(correctAnswers, answers);
             this.setState({
                 finish: true,
                 answered
             });
-    } }
+        }
+    }
     countMark = (apiAnswers, variants) => {
         let counter = 0;
         const { data } = this.state;
@@ -99,29 +101,25 @@ export default class QuestionBlock extends React.Component {
         }
         return counter;
     }
-    sendDataOnServer = () => {
-        const {answered} = this.state;
-        return (
-         <SendPOST count={answered} />
-        )
-    }
+    
     render() {
         const { id, data, answered, finish } = this.state;
         if (!data) {
             return <Spinner />
         }
         const task = this.showTasks(data, id),
-              answers = this.getAnswers(data, id);
+            answers = this.getAnswers(data, id);
 
         if (!finish) {
-            return <Quiz task={task} answers={answers}
-                         id={id} btn={this.onNextClick}
-                         write={this.writeAnswer}
-                   />
+            return <Quiz
+                task={task} answers={answers}
+                id={id} btn={this.onNextClick}
+                write={this.writeAnswer}
+            />
         } else {
             if (answered >= 0) {
-                this.sendDataOnServer();
-                return <Result answered={answered} />
+                return <Result 
+                answered={answered} />
             }
             else {
                 return <Warning />

@@ -14,14 +14,15 @@ const Quiz = ({ task, answers, id, btn, write }) => {
         {answers}
       </ul>
     </div >
-    <ButtonNext next={btn} />
+    <ButtonNext 
+        next={btn} />
   </div >)
 }
 
-const Result = ({ answered }) => {
+const Result = ({ res}) => {
   return (<div className='main-div my-result'>
     <h3 className="text-center my-vertical">
-      {`Вы набрали ${answered} правильных ответов`}
+      {`Вы набрали ${res} правильных ответов`}
     </h3>
   </div>)
 }
